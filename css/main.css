@@ -24,8 +24,16 @@ body {
 }
 
 .highlight {
-  color: gold;
+  color: rgb(255, 215, 0);
   border-bottom: 2px solid gold;
+}
+
+.helpColor2 {
+  background-color: rgba(0, 0, 0, 0.67);
+}
+
+.helpColor1 {
+  background-color: hsl(221, 100%, 21%);
 }
 
 .box {
@@ -45,7 +53,7 @@ body {
   text-align: center;
   border: 3px solid gold;
   border-radius: 0.5em;
-  color: white;
+  color: rgb(255, 255, 255);
   background-color: hsl(221, 96%, 27%);
 }
 
@@ -189,7 +197,6 @@ body {
   margin: 1em;
   font-size: 1.5rem;
   border-radius: 50%;
-  background-color: hsl(221, 100%, 21%);
   color: white;
   border: 2px solid black;
   transition: box-shadow 0.3s, border 0.3s;
@@ -198,6 +205,15 @@ body {
 .box2 .helpBtns button:hover {
   box-shadow: inset 5px 5px 5px 2px black;
   border: 2px solid rgb(105, 101, 101);
+}
+.box2 .fa-people-group:before {
+  padding: 1em;
+}
+.box2 .fa-phone:before {
+  padding: 1em;
+}
+.box2 .btn2 {
+  padding: 1em;
 }
 .box2 .prize-list {
   position: relative;
