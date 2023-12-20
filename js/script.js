@@ -11,16 +11,20 @@ const nextBtn = document.querySelector('.next-btn');
 const answerText = Array.from(document.querySelectorAll('.text'));
 // lista nagród
 const prizeList = Array.from(document.querySelectorAll('.prizeText'));
-// const halfBtn = document.querySelector('.btn2')
-// const btn1 = document.querySelector('.btn1')
-// const btn3 = document.querySelector('.btn3')
-// const helpBtns = Array.from(document.querySelector('helpBtns'))
+const halfBtn = document.querySelector('.btn2')
+const btn1 = document.querySelector('.btn1')
+const btn3 = document.querySelector('.btn3')
+const help = document.querySelector('.help')
+
 
 
 // tworze zmienne
 let acceptingAnswers = false;
 let currentQuestion = {};
 let score;
+let num1 = 1
+let num2 = 1
+let num3 = 1
 let questionCounter = 0;
 let availableQuestions = [];
 
@@ -214,28 +218,62 @@ answerText.forEach((choice) => {
 	});
 });
 
-// const hidebtn1 = () =>{
-// 		helpBtns.removeChild(btn1)
-// }
-// const hidebtn2 = () =>{
-// 		e.parentElement.remove()
-// }
-// const hidebtn3 = () =>{
-// 	e.parentElement.remove()
-// }
+const changeColor = (e) =>{
+	choice = e.target;
+	number = num1
 
-// halfBtn.addEventListener('click',hidebtn2 )
-// btn1.addEventListener('click',hidebtn1 )
-// btn3.addEventListener('click',hidebtn3 )
+	if(number == 1 )
+	{
+		choice.closest('button').classList.add('helpColor2');
+		choice.closest('button').classList.remove('helpColor1');
+	}
+	if (number == 0){
+		choice.closest('button').classList.add('hide');
+	}
+	console.log(num1);
+	num1--
 
+}
+const changeColor2 = (e) =>{
+	choice = e.target;
+	number = num2
+
+	if(number == 1 )
+	{
+		choice.closest('button').classList.add('helpColor2');
+		choice.closest('button').classList.remove('helpColor1');
+	}
+	if (number == 0){
+		choice.closest('button').classList.add('hide');
+	}
+	console.log(num2);
+	num2--
+
+}
+const changeColor3 = (e) =>{
+	choice = e.target;
+	number = num3
+	if(number == 1 )
+	{
+		choice.closest('button').classList.add('helpColor2');
+		choice.closest('button').classList.remove('helpColor1');
+	}
+	if (number == 0){
+		choice.closest('button').classList.add('hide');
+	}
+	
+	num3--
+
+}
+
+
+
+
+btn1.addEventListener('click',changeColor)
+halfBtn.addEventListener('click',changeColor2)
+btn3.addEventListener('click',changeColor3)
 nextBtn.addEventListener('click', nextFunc);
 startBtn.addEventListener('click', starGame);
 
 
 
-
-
-
-
-nextBtn.addEventListener('click', nextFunc);
-startBtn.addEventListener('click', starGame);
