@@ -21,9 +21,17 @@ body {
 	display: none;
 }
 .highlight{
-	color: gold;
+	color: rgb(255, 215, 0);
 	border-bottom: 2px solid gold;
 }
+.helpColor2{
+	background-color:  rgba(0, 0, 0, 0.67);
+}
+.helpColor1{
+	background-color: $help-btn;
+}
+
+
 
 .box {
 	position: absolute;
@@ -42,7 +50,7 @@ body {
 			text-align: center;
 			border: 3px solid gold;
 			border-radius: 0.5em;
-			color: white;
+			color: rgb(255, 255, 255);
 			background-color: $neutral;
 		}
 	}
@@ -185,7 +193,7 @@ body {
 			margin: 1em;
 			font-size: 1.5rem;
 			border-radius: 50%;
-			background-color: $help-btn;
+			// background-color: $help-btn;
 			color: white;
 			border: 2px solid black;
 			transition: box-shadow 0.3s, border 0.3s;
@@ -196,6 +204,15 @@ body {
 				border: 2px solid rgb(105, 101, 101);
 			}
 		}
+	}
+	.fa-people-group:before{
+		padding: 1em;
+	}
+	.fa-phone:before{
+		padding: 1em;
+	}
+	.btn2{
+		padding: 1em;
 	}
 
 	.prize-list {
