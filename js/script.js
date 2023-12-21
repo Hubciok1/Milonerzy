@@ -218,6 +218,52 @@ answerText.forEach((choice) => {
 	});
 });
 
+// Function to get two random wrong answers
+const getTwoRandomWrongAnswers = () => {
+    const wrongAnswers = [];
+    const answerArr = [];
+
+    // Push all answer choices to the answerArr
+    answerArr.push(currentQuestion.choice1);
+    answerArr.push(currentQuestion.choice2);
+    answerArr.push(currentQuestion.choice3);
+    answerArr.push(currentQuestion.choice4);
+
+    // Remove the correct answer from the array
+    answerArr.splice(currentQuestion.answer - 1, 1);
+
+    // Shuffle the array to get random wrong answers
+    const randomItems = answerArr.sort(() => Math.random() - 0.5).slice(0, 2);
+
+    // Add the random wrong answers to the wrongAnswers array
+    randomItems.forEach((choice) => {
+        wrongAnswers.push(choice);
+    });
+
+    return wrongAnswers;
+};
+
+// Function to apply 'wrong' class to random wrong answers
+const markRandomWrongAnswers = () => {
+    const wrongAnswers = getTwoRandomWrongAnswers();
+
+    answerText.forEach((choice) => {
+        const number = choice.dataset['number'];
+
+        // Check if the choice corresponds to a random wrong answer
+        if (wrongAnswers.includes(currentQuestion['choice' + number])) {
+            choice.closest('button').classList.add('wrong');
+            choice.closest('button').classList.remove('hover');
+        }
+    });
+};
+
+// Updated halfbtnlogic function
+const halfbtnlogic = () => {
+    markRandomWrongAnswers();
+};
+
+
 const changeColor = (e) =>{
 	choice = e.target;
 	number = num1
@@ -271,6 +317,7 @@ const changeColor3 = (e) =>{
 
 btn1.addEventListener('click',changeColor)
 halfBtn.addEventListener('click',changeColor2)
+halfBtn.addEventListener('click', halfbtnlogic);
 btn3.addEventListener('click',changeColor3)
 nextBtn.addEventListener('click', nextFunc);
 startBtn.addEventListener('click', starGame);
